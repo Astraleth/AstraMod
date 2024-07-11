@@ -6,6 +6,8 @@ import net.astraleth.astramod.annotation.Module;
 import net.astraleth.astramod.module.CustomModule;
 import net.astraleth.astramod.module.ModuleBase;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
@@ -16,6 +18,8 @@ import java.util.*;
  * @author amraleth
  */
 public class ModuleRegistry<T extends ModuleBase> {
+    private final Logger logger;
+
     private final T baseClazz;
     @Getter
     private final Set<Class<? extends CustomModule<T>>> modules;
@@ -27,6 +31,7 @@ public class ModuleRegistry<T extends ModuleBase> {
      * @param baseClazz An instance of the specified base class
      */
     public ModuleRegistry(@NotNull T baseClazz) {
+        this.logger = LoggerFactory.getLogger("AstraMod");
         this.baseClazz = baseClazz;
         this.modules = new HashSet<>();
         this.moduleMap = new HashMap<>();
@@ -89,12 +94,14 @@ public class ModuleRegistry<T extends ModuleBase> {
         if (clazz == null) {
             throw new Exception("The module " + moduleName + " was not found");
         }
+        this.logger.info("Loading module {} in path {}", moduleName, clazz.getName());
 
         if (clazz.isAnnotationPresent(DependsOn.class)) {
             DependsOn dependsOn = clazz.getAnnotation(DependsOn.class);
 
             for (String moduleId : dependsOn.dependencies()) {
                 if (moduleId != null) {
+                    this.logger.info("Loading dependency {} for module {}", moduleName, moduleId);
                     loadModule(moduleId);
                 }
             }

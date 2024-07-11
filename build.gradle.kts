@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "net.astraleth"
-version = "1.0-SNAPSHOT"
+version = "1.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -20,6 +20,10 @@ dependencies {
     // lombok
     compileOnly("org.projectlombok:lombok:1.18.34")
     annotationProcessor("org.projectlombok:lombok:1.18.34")
+
+    // logger
+    implementation("org.slf4j:slf4j-api:1.7.25")
+    implementation("ch.qos.logback:logback-classic:1.4.12")
 }
 
 tasks.test {
@@ -31,7 +35,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "net.astraleth"
             artifactId = "AstraMod"
-            version = "1.0-SNAPSHOT"
+            version = "1.1-SNAPSHOT"
 
 
             from(components["java"])
