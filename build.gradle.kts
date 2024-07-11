@@ -25,3 +25,25 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "net.astraleth"
+            artifactId = "AstraMod"
+            version = "1.0-SNAPSHOT"
+
+
+            from(components["java"])
+        }
+    }
+    repositories {
+        maven {
+            url = uri("https://repo.noloy.services/repository/astraleth/")
+            credentials {
+                username = extra["repoUser"].toString()
+                password = extra["repoPassword"].toString()
+            }
+        }
+    }
+}
