@@ -19,5 +19,5 @@ public @interface DependsOn {
     /**
      * An array of all base module classes this module depends on
      */
-    @Nullable Class<?>[] dependencies();
+    @Nullable String[] dependencies();
 }

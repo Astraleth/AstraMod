@@ -44,3 +44,4 @@ bin/
 ### Custom ###
 .idea
 gradle
+gradle.properties
