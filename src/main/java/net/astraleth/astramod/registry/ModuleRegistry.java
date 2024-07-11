@@ -102,6 +102,5 @@ public class ModuleRegistry<T extends ModuleBase> {
         CustomModule<T> customModule = clazz.getDeclaredConstructor().newInstance();
         customModule.initModule(this.baseClazz);
         this.loadedModules.add(moduleName);
-
     }
 }

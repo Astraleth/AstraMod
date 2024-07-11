@@ -1,6 +1,5 @@
 package net.astraleth.astramod.annotation;
 
-import net.astraleth.astramod.module.CustomModule;
 import org.jetbrains.annotations.Nullable;
 
 import java.lang.annotation.ElementType;

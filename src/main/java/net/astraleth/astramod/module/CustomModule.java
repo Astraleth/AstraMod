@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
  * The base class used for every module
  *
  * @param <T> The main class used for initializing the module
+ * @author amraleth
  */
 public interface CustomModule<T extends ModuleBase> {
 
