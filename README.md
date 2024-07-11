@@ -9,7 +9,7 @@ To use it in your project, you need to import the repository and the dependency:
 
 ```kotlin
 maven {
-    url = uri("https://repo.noloy.services/repository/astraleth")
+    url = uri("https://repo.astraleth.net/repository/astraleth")
 }
 ```
 
