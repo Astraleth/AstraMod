@@ -54,7 +54,7 @@ public class ModuleRegistry<T extends ModuleBase> {
             this.moduleMap.put(getName(moduleClazz), moduleClazz);
         }
 
-        for (String moduleName : this.loadedModules) {
+        for (String moduleName : this.moduleMap.keySet()) {
             loadModule(moduleName);
         }
     }
@@ -98,10 +98,10 @@ public class ModuleRegistry<T extends ModuleBase> {
                     loadModule(moduleId);
                 }
             }
-
-            CustomModule<T> customModule = clazz.getDeclaredConstructor().newInstance();
-            customModule.initModule(this.baseClazz);
-            this.loadedModules.add(moduleName);
         }
+        CustomModule<T> customModule = clazz.getDeclaredConstructor().newInstance();
+        customModule.initModule(this.baseClazz);
+        this.loadedModules.add(moduleName);
+
     }
 }
