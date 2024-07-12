@@ -101,7 +101,7 @@ public class ModuleRegistry<T extends ModuleBase> {
 
             for (String moduleId : dependsOn.dependencies()) {
                 if (moduleId != null) {
-                    this.logger.info("Loading dependency {} for module {}", moduleName, moduleId);
+                    this.logger.info("Loading dependency {} for module {}", moduleId, moduleName);
                     loadModule(moduleId);
                 }
             }
