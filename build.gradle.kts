@@ -34,7 +34,7 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             groupId = "net.astraleth"
-            artifactId = "AstraMod"
+            artifactId = "astramod"
             version = "1.1-SNAPSHOT"
 
 
@@ -43,10 +43,10 @@ publishing {
     }
     repositories {
         maven {
-            url = uri("https://repo.noloy.services/repository/astraleth/")
+            url = uri("https://repo.astraleth.net/repository/astraleth/")
             credentials {
-                username = extra["repoUser"].toString()
-                password = extra["repoPassword"].toString()
+                username = extra["gpr.user"].toString()
+                password = extra["gpr.token"].toString()
             }
         }
     }

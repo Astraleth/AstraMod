@@ -14,7 +14,7 @@ maven {
 ```
 
 ```kotlin
-implementation("net.astraleth:AstraMod:VERSION")
+implementation("net.astraleth:astramod:VERSION")
 ```
 
 ## Usage
